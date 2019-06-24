@@ -15,17 +15,14 @@ PORT = 65432        # The port used by the server
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
-sendStr = "Lmaoo"
-s.sendall(sendStr)
+
 # Init
 brick.sound.beep()
 
-balance = 10000
-
 price = {
-    1: 1000,
-    2: 2000,
-    3: 3000
+    1: 950,
+    2: 1100,
+    3: 1250
 }
 
 ul1 = UltrasonicSensor(Port.S1)
@@ -37,20 +34,14 @@ mB = Motor(Port.B)
 mC = Motor(Port.C)
 
 while True:
-    if ul1.distance() > 160:
-        balance -= price[1]
-        sock.sendto("SSSSS", (UDP_IP, UDP_PORT))
-        print(balance)
+    if ul1.distance() > 150:
+        s.sendall(str(price[1]))
         mA.run_time(-700, 2000, Stop.COAST)
-    if ul2.distance() > 160:
-        balance -= price[2]
-        sock.sendto("SSSSS", (UDP_IP, UDP_PORT))
-        print(balance)
+    if ul2.distance() > 150:
+        s.sendall(str(price[2]))
         mB.run_time(-700, 2000, Stop.COAST)
-    if ul3.distance() > 160:
-        balance -= price[3]
-        sock.sendto("SSSSS", (UDP_IP, UDP_PORT))
-        print(balance)
+    if ul3.distance() > 150:
+        s.sendall(str(price[3]))
         mC.run_time(-700, 2000, Stop.COAST)
 
     

@@ -17,7 +17,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             dataAsStr = str(data).replace("'", "")
             dataAsStr = str(dataAsStr).replace("b", "")
             print(dataAsStr)
-            #if(dataAsStr[0] == "C"):
-            #    response = requests.get('http://test.docchaika.kz/get.php?carCount=' + dataAsStr[1::], headers={'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'})
-            #if(dataAsStr[0] == "T"):
-            #    response = requests.get('http://test.docchaika.kz/get.php?min=' + dataAsStr[1::], headers={'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'})
+            response = requests.get('http://adil210.beget.tech/get.php?sum=' + dataAsStr, headers={'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0'})
