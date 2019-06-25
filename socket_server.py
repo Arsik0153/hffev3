@@ -1,7 +1,7 @@
 import socket
 import requests
 
-HOST = '192.168.100.38'  # Standard loopback interface address (localhost)
+HOST = input("Enter IP of your device: ")  # Standard loopback interface address (localhost)
 PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
